@@ -1,12 +1,22 @@
 class Main {
   //
   constructor() {
-    this.Id_exampleDataList = document.getElementById("floatingInputGrid");
+    this.Id_ArrayList = ["floatingInputGrid"];
+    this.ClassName_ArrayList = ["floatingInputGrid"];
     this.localStorage_Array = [];
     this.localStorage_keyName = "HLS url";
     this.localStorage_value =
       "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
   }
+
+  //
+  getElementById = (i) => {
+    return document.getElementById(i);
+  };
+
+  getElementsByClassName = (i) => {
+    return document.getElementsByClassName(i);
+  };
 
   //
   customHTML = () => {
@@ -126,15 +136,15 @@ class Main {
 
   //
   ListenInputOnChange = () => {
-    this.Id_exampleDataList.addEventListener("change", () => {
+    this.getElementById(this.Id_ArrayList[0]).addEventListener("change", () => {
       if (
-        !validator.isEmpty(this.Id_exampleDataList.value) &&
-        !validator.isEmail(this.Id_exampleDataList.value) &&
-        validator.isURL(this.Id_exampleDataList.value)
+        !validator.isEmpty(this.getElementById(this.Id_ArrayList[0]).value) &&
+        !validator.isEmail(this.getElementById(this.Id_ArrayList[0]).value) &&
+        validator.isURL(this.getElementById(this.Id_ArrayList[0]).value)
       ) {
         this.addToLocalStorageArray(
           this.localStorage_keyName,
-          this.Id_exampleDataList.value
+          this.getElementById(this.Id_ArrayList[0]).value
         );
         this.datalistOptionsGenerator();
         this.HLSplayer();
@@ -144,11 +154,11 @@ class Main {
 
   //
   getInputValue = () => {
-    if (this.Id_exampleDataList.value === "") {
-      return (this.Id_exampleDataList.value =
+    if (this.getElementById(this.Id_ArrayList[0]).value === "") {
+      return (this.getElementById(this.Id_ArrayList[0]).value =
         this.getDataLocalStorage().at(-1));
     } else {
-      return this.Id_exampleDataList.value;
+      return this.getElementById(this.Id_ArrayList[0]).value;
     }
   };
 
