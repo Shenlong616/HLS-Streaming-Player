@@ -1,180 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HLS Streaming Player</title>
-    <meta name="description" content="m3u8-streaming-player" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css?v=5.2.0-beta1"
+      href="https://cdn.jsdelivr.net/npm/98.css@0.1.18/dist/98.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css?v=1.8.2"
-    />
-    <link rel="stylesheet" href="css/nprogress.css?v=0.2.0" />
-    <link rel="stylesheet" href="css/pokey.css?v=1.0.0" />
+    <link rel="stylesheet" href="css/pokey.css" />
+    <title>HLS Streaming Player.exe v2.0</title>
     <style>
-      .offcanvas-backdrop {
-        margin-top: 0 !important;
+      body {
+        /* margin: 0;
+        padding: 0; */
+        background: #c0c0c0;
+        overflow-y: scroll;
       }
-      .offcanvas-backdrop.show {
-        opacity: 0.75 !important;
+      main {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .mb-2 {
+        margin-bottom: 0.5rem !important;
+      }
+
+      .tree-view,
+      ul.tree-view ul > li:last-child:after {
+        background: #c0c0c0 !important;
+      }
+      ul.tree-view {
+        box-shadow: none !important;
+      }
+
+      /* https://getbootstrap.com/docs/5.2/layout/breakpoints/#media-queries */
+      @media (min-width: 1400px) {
+        main {
+          width: 87.65%;
+        }
       }
     </style>
   </head>
-  <body class="text-bg-light">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col"></div>
-        <div class="col-sm-11">
-          <h1 class="my-3 text-center">
-            <a href="https://github.com/video-dev/hls.js/" class="baffle_elm"
-              >HLS</a
-            >
-            Streaming Player
-          </h1>
-          <div
-            class="border border-secondary border-opacity-25 shadow-lg bg-body rounded text-center p-3"
-          >
-            <div class="row g-2">
-              <div class="col-md">
-                <div class="form-floating">
-                  <input
-                    type="url"
-                    class="form-control text-bg-light border-0"
-                    id="floatingInputGrid"
-                    list="datalistOptions"
-                    placeholder="search"
-                    value=""
-                  />
-                  <datalist id="datalistOptions">
-                    <!-- <option value="San Francisco"></option> -->
-                  </datalist>
-                  <label for="floatingInputGrid"
-                    ><i class="bi bi-arrow-right-short"></i>my HLS video
-                    streaming URL</label
-                  >
-                </div>
-              </div>
-              <div class="col-md">
-                <div class="form-floating">
-                  <select
-                    class="form-select text-bg-light border-0"
-                    id="floatingSelectGrid"
-                    onchange="main.Menu();this.value=0;"
-                  >
-                    <option value="0">Open this select menu</option>
-                    <option value="1">Picture-in-picture</option>
-                    <option value="2">Reset</option>
-                  </select>
-                  <label for="floatingSelectGrid"
-                    ><i class="bi bi-three-dots"></i>Menu</label
-                  >
-                </div>
-              </div>
-              <video class="container-fluid pt-3" id="video" controls></video>
-              <div
-                class="offcanvas offcanvas-top mt-0 p-0"
-                tabindex="-1"
-                id="offcanvasTop"
-                aria-labelledby="offcanvasTopLabel"
-              >
-                <div class="offcanvas-header text-bg-dark shadow">
-                  <h3 class="offcanvas-title" id="offcanvasTopLabel">
-                    Changelog
-                  </h3>
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <!-- <hr class="opacity-100" /> -->
-                <div class="offcanvas-body text-start">
-                  <details>
-                    <summary
-                      title="07/06/2022"
-                      id="last_updated"
-                      class="fw-semibold"
-                    ></summary>
-                    <ul>
-                      <li>test</li>
-                    </ul>
-                  </details>
-                  <hr />
-                  <details>
-                    <summary
-                      title="06/06/2022"
-                      id="last_updated"
-                      class="fw-semibold"
-                    ></summary>
-                    <ul>
-                      <li>unknown :)</li>
-                    </ul>
-                  </details>
-                  <hr />
-                  <details>
-                    <summary
-                      title="05/06/2022"
-                      id="last_updated"
-                      class="fw-semibold"
-                    ></summary>
-                    <ul>
-                      <li>improve core stability</li>
-                    </ul>
-                  </details>
-                  <hr />
-                  <details>
-                    <summary
-                      title="01/06/2022"
-                      id="last_updated"
-                      class="fw-semibold"
-                    ></summary>
-                    <ul>
-                      <li>fix known bugs</li>
-                      <li>update ui</li>
-                    </ul>
-                  </details>
-                  <hr />
-                  <details>
-                    <summary
-                      title="21/05/2022"
-                      id="last_updated"
-                      class="fw-semibold"
-                    ></summary>
-                    <ul>
-                      <li>release the first version!</li>
-                    </ul>
-                  </details>
-                </div>
-              </div>
-            </div>
+  <body>
+    <main>
+      <!-- 0 -->
+      <div class="window mb-2">
+        <div class="title-bar">
+          <div class="title-bar-text" id="title">HLS Streaming Player.exe</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
           </div>
-          <h6 class="my-3 text-center">
-            <i class="bi bi-github"></i
-            ><span
-              class="baffle_elm"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasTop"
-              aria-controls="offcanvasTop"
-              onclick="main.fakeLoading(); main.MomentJS();"
-              >Shenlong616</span
-            >
-          </h6>
         </div>
-        <div class="col"></div>
+        <div class="window-body">
+          <!-- 1 -->
+          <div class="field-row mb-2">
+            <label for="text17"></label>
+            <input
+              style="width: -webkit-fill-available"
+              id="text17"
+              type="text"
+              value=""
+              placeholder="HLS live streaming url"
+            />
+            <select id="menu1" onchange="main._Menu();this.value=0;">
+              <option value="0">Open this select menu</option>
+              <option value="1">Picture-in-picture</option>
+              <option value="2">Reset</option>
+            </select>
+          </div>
+          <!-- 2 -->
+          <video controls class="mb-2" style="width: 50%" id="video1">
+            Your browser does not support HTML video.
+          </video>
+          <!-- 3 -->
+          <fieldset class="mb-2">
+            <legend><b>List of saved urls HLS:</b></legend>
+            <div id="eeeeeeeeeeeeeeeeeeeeeee"></div>
+          </fieldset>
+          <!-- 4 -->
+          <fieldset class="mb-2">
+            <legend><b>Changelog</b></legend>
+            <ul class="tree-view">
+              <li>
+                <details>
+                  <summary>v2.0</summary>
+                  <ul>
+                    <li>
+                      <details>
+                        <summary title="09/06/2022" id="momen1"></summary>
+                        <ul>
+                          <li>hello "98.css"</li>
+                        </ul>
+                      </details>
+                    </li>
+                  </ul>
+                </details>
+                <hr />
+                <details>
+                  <summary>v1.0</summary>
+                  <ul>
+                    <li>
+                      <details>
+                        <summary title="06/06/2022" id="momen1"></summary>
+                        <ul>
+                          <li>goodbye "Bootstrap"</li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li>
+                      <details>
+                        <summary title="05/06/2022" id="momen1"></summary>
+                        <ul>
+                          <li>improve core stability</li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li>
+                      <details>
+                        <summary title="01/06/2022" id="momen1"></summary>
+                        <ul>
+                          <li>fix known bugs</li>
+                          <li>update ui</li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li>
+                      <details>
+                        <summary title="21/05/2022" id="momen1"></summary>
+                        <ul>
+                          <li>release the first version!</li>
+                        </ul>
+                      </details>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+        <!-- 5 -->
+        <div class="status-bar" style="margin-bottom: 0.2rem">
+          <!-- <p class="status-bar-field" style="flex-grow: 0; text-align: center">
+            <a href="https://github.com/Shenlong616">github.com/Shenlong616</a>
+          </p> -->
+          <p class="status-bar-field" id="notification"></p>
+          <p class="status-bar-field" style="flex-grow: 0; text-align: center">
+            <a href="https://github.com/Shenlong616">github.com/Shenlong616</a>
+          </p>
+        </div>
       </div>
-    </div>
-    <script src="bootstrap-5.2.0-beta1-dist/js/bootstrap.bundle.min.js?v=5.2.0-beta1"></script>
-    <script src="js/hls.min.js?v=1.1.5"></script>
-    <script src="js/validator.min.js?v=13.7.0"></script>
-    <script src="js/nprogress.min.js?v=0.2.0"></script>
-    <script src="js/baffle.min.js?v=0.3.6"></script>
-    <script src="js/moment.min.js?v=2.29.3"></script>
+    </main>
+    <noscript>JavaScript required</noscript>
+    <script src="js/moment.min.js"></script>
+    <script src="js/validator.min.js"></script>
+    <script src="js/hls.min.js"></script>
     <script src="js/main.min.js"></script>
   </body>
 </html>

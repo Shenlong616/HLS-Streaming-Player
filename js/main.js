@@ -1,10 +1,3 @@
-// ----------------------------------------------------------------
-"use strict";
-// ----------------------------------------------------------------
-// fakeLoading > ...
-// ----------------------------------------------------------------
-
-//
 class Main {
   constructor() {
     this.default = {
@@ -16,118 +9,39 @@ class Main {
     };
   }
 
-  //
-  getElementById = (i) => {
-    return document.getElementById(i);
-  };
-
-  getElementsByClassName = (i) => {
-    return document.getElementsByClassName(i);
-  };
-
-  //
-  customHTML = () => {
-    for (const i of document.querySelectorAll(".bi")) {
-      i.classList.add("px-1", "user-select-none");
-    }
-
-    //
-    for (const i of document.querySelectorAll("a")) {
-      i.setAttribute("rel", "noopener noreferrer");
-      i.setAttribute("target", "_blank");
-    }
-
-    // https://stackoverflow.com/a/222847
-    for (const i of [...document.getElementsByTagName("details")].slice(0, 3)) {
-      i.setAttribute("open", "");
-    }
-    // console.log([...document.getElementsByTagName("details")].slice(0, 3));
-  };
-
-  //
-  NProgress = () => {
-    NProgress.start();
-    NProgress.done();
-  };
-
-  //
-  fakeLoading = () => {
-    baffle(".baffle_elm")
-      .set({
-        characters: ["█", "▓", "▒", "░", "<", ">", "/"],
-        speed: 50,
-      })
-      .reveal(300);
-
-    //
-    this.NProgress();
-  };
-
-  //
-  MomentJS = () => {
-    for (const i of document.querySelectorAll("#last_updated")) {
-      i.innerHTML = moment(i.title.replaceAll("/", ""), "DDMMYYYY").fromNow();
-    }
-  };
-
-  //
-  Menu = () => {
-    //
-    this.fakeLoading();
-
-    //
-    const a = document.getElementById("floatingSelectGrid");
-    let b = a.value;
-
-    //
-    if (b == "1") {
-      togglePictureInPicture();
-    } else if (b == "2") {
-      localStorage.clear();
-      document.location.reload(true);
-    }
-
-    //
-    function togglePictureInPicture() {
-      if (document.pictureInPictureElement) {
-        document.exitPictureInPicture();
-        a.selectedOptions[0].classList.remove("text-bg-success");
-      } else {
-        if (document.pictureInPictureEnabled) {
-          document.getElementById("video").requestPictureInPicture();
-          a.selectedOptions[0].classList.add("text-bg-success");
-        }
-      }
-    }
-  };
-
   // https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_uniq
   _uniq = (i) => {
     return [...new Set(i)];
   };
 
-  /**
-   * Add an item to a localStorage() array
-   * https://gomakethings.com/how-to-update-localstorage-with-vanilla-javascript
-   * https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
-   */
+  // https://github.com/validatorjs/validator.js/blob/master/src/index.js
+  _validator__URL = (i) => {
+    return validator.isURL(i) && !validator.isEmail(i) && !validator.isEmpty(i);
+  };
 
-  //
-  addToLocalStorageArray = (key, value) => {
-    this.default.localStorage.array.push(value);
+  _innerText__byId = (i1, i2) => {
+    return (document.getElementById(i1).innerText = i2);
+  };
+
+  _innerText__byId__2 = (i1, i2) => {
+    return (document.getElementById(i1).innerText += i2);
+  };
+
+  _get__inputValue__byId = (i) => {
+    return document.getElementById(i).value;
+  };
+
+  _add__ArrayTo_localStorage = (i) => {
+    this.default.localStorage.array.push(i);
     localStorage.setItem(
-      key,
+      this.default.localStorage.key,
       JSON.stringify(this._uniq(this.default.localStorage.array))
     );
   };
 
-  //
-  getDataLocalStorage = () => {
+  _get__Data__localStorage = () => {
     if (localStorage.getItem(this.default.localStorage.key) === null) {
-      this.addToLocalStorageArray(
-        this.default.localStorage.key,
-        this.default.localStorage.value
-      );
+      this._add__ArrayTo_localStorage(this.default.localStorage.value);
     } else {
       return (this.default.localStorage.array = JSON.parse(
         localStorage.getItem(this.default.localStorage.key)
@@ -135,56 +49,88 @@ class Main {
     }
   };
 
-  //
-  datalistOptionsGenerator = () => {
-    for (const i of document.querySelectorAll("#datalistOptionsGenerator")) {
-      i.remove();
-    }
-
-    //
-    this.getDataLocalStorage().forEach(
-      (i) =>
-        (document.getElementById(
-          "datalistOptions"
-        ).innerHTML += `<option value=${i} id="datalistOptionsGenerator"></option>`)
-    );
-  };
-
-  //
-  ListenInputOnChange = () => {
-    this.getElementById("floatingInputGrid").addEventListener("change", () => {
-      if (
-        !validator.isEmpty(this.getElementById("floatingInputGrid").value) &&
-        !validator.isEmail(this.getElementById("floatingInputGrid").value) &&
-        validator.isURL(this.getElementById("floatingInputGrid").value)
-      ) {
-        this.addToLocalStorageArray(
-          this.default.localStorage.key,
-          this.getElementById("floatingInputGrid").value
-        );
-        this.datalistOptionsGenerator();
-        this.HLSplayer();
+  _inputValue__onChange = () => {
+    document.getElementById("text17").addEventListener("change", () => {
+      if (this._validator__URL(this._get__inputValue__byId("text17"))) {
+        this._add__ArrayTo_localStorage(this._get__inputValue__byId("text17"));
+        this._HLS__player(this._get__inputValue__byId("text17"));
+        this._modify__HTML__2();
       }
     });
   };
 
-  //
-  getInputValue = () => {
-    if (this.getElementById("floatingInputGrid").value === "") {
-      return (this.getElementById("floatingInputGrid").value =
-        this.getDataLocalStorage().at(-1));
-    } else {
-      return this.getElementById("floatingInputGrid").value;
+  _inputTypeRadio__onChange = () => {
+    for (const i of document.querySelectorAll(
+      `input[name="fieldset-example2"]`
+    )) {
+      i.addEventListener("change", () => {
+        this._HLS__player(i.value);
+      });
     }
   };
 
-  //
-  HLSplayer = () => {
-    //
-    this.fakeLoading();
+  _modify__HTML = () => {
+    for (const i of document.querySelectorAll("a")) {
+      i.setAttribute("rel", "noopener noreferrer");
+      i.setAttribute("target", "_blank");
+    }
 
-    //
-    var video = document.getElementById("video");
+    for (const i of document.querySelectorAll("#momen1")) {
+      i.innerHTML = moment(i.title.replaceAll("/", ""), "DDMMYYYY").fromNow();
+    }
+
+    // https://stackoverflow.com/a/222847
+    // for(const e of[...document.getElementsByTagName("details")].slice(0,3));
+    for (let i = 0; i < 4; i++) {
+      document.getElementsByTagName("details").item(i).setAttribute("open", "");
+    }
+  };
+
+  _modify__HTML__2 = () => {
+    this._get__Data__localStorage();
+
+    for (const i of document.querySelectorAll(".gg2")) {
+      i.remove();
+    }
+
+    for (const i of this.default.localStorage.array) {
+      document.getElementById(
+        "eeeeeeeeeeeeeeeeeeeeeee"
+      ).innerHTML += ` <div class="field-row gg2">
+      <input
+        id=${this.default.localStorage.array.indexOf(i)}
+        type="radio"
+        name="fieldset-example2"
+        value="${i}"
+      />
+      <label for=${this.default.localStorage.array.indexOf(i)}>${i}</label>
+    </div>`;
+    }
+
+    this._inputTypeRadio__onChange();
+  };
+
+  _Menu = () => {
+    if (document.getElementById("menu1").value == "1") {
+      _toggle__PictureInPicture();
+    } else if (document.getElementById("menu1").value == "2") {
+      localStorage.clear();
+      document.location.reload(true);
+    }
+
+    function _toggle__PictureInPicture() {
+      if (document.pictureInPictureElement) {
+        document.exitPictureInPicture();
+      } else {
+        if (document.pictureInPictureEnabled) {
+          document.getElementById("video1").requestPictureInPicture();
+        }
+      }
+    }
+  };
+
+  _HLS__player = (i) => {
+    var video = document.getElementById("video1");
     if (Hls.isSupported()) {
       var hls = new Hls({
         // https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning
@@ -264,10 +210,10 @@ class Main {
         // requestMediaKeySystemAccessFunc: requestMediaKeySystemAccess,
         cmcd: undefined,
       });
-      hls.loadSource(this.getInputValue());
+
+      hls.loadSource(i);
       hls.attachMedia(video);
 
-      //
       hls.on(Hls.Events.MEDIA_ATTACHED, () => {
         video.muted = true;
         video.play();
@@ -282,21 +228,22 @@ class Main {
 
     //
     else if (video.canPlayType("application/vnd.apple.mpegurl")) {
-      video.src = this.getInputValue();
+      video.src = i;
       video.addEventListener("canplay", () => {
         video.play();
       });
     }
   };
 }
-
-//
 const main = new Main();
 
-//
-main.customHTML();
-main.getDataLocalStorage();
-main.datalistOptionsGenerator();
-main.ListenInputOnChange();
-main.getInputValue();
-main.HLSplayer();
+window.onload = () => {
+  main._innerText__byId__2(
+    "title",
+    ` ${document.getElementsByTagName("summary").item(0).textContent}`
+  );
+  main._innerText__byId("notification", `${moment().format("LLL")} - dilligaf`);
+  main._modify__HTML();
+  main._modify__HTML__2();
+  main._inputValue__onChange();
+};
