@@ -18,6 +18,8 @@
 | libraryName                                                 | versionNumber |
 | ----------------------------------------------------------- | ------------- |
 | [98.css](https://github.com/jdan/98.css)                    | 0.1.18        |
+| [XP.css](https://github.com/jdan/98.css)                    | 0.3.0         |
+| [7.css](https://github.com/jdan/98.css)                     | 0.7.0         |
 | [Moment.js](https://github.com/moment/moment/)              | 2.29.3        |
 | [validator.js](https://github.com/validatorjs/validator.js) | 13.7.0        |
 | [HLS.js](https://github.com/video-dev/hls.js/)              | 1.1.5         |

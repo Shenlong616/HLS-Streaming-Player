@@ -10,6 +10,7 @@ main {
   width: auto;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 2vh;
 }
 
 .mb-2 {

@@ -272,17 +272,48 @@ class Main {
     }
   };
 
+  _98__CSS = () => {
+    document
+      .getElementById("theme-stylesheet")
+      .setAttribute("href", "css/98.css/98.min.css");
+  };
+
+  _XP__CSS = () => {
+    document
+      .getElementById("theme-stylesheet")
+      .setAttribute("href", "css/XP.css/XP.min.css");
+  };
+
+  _7__CSS = () => {
+    document
+      .getElementById("theme-stylesheet")
+      .setAttribute("href", "css/7.css/7.min.css");
+  };
+
   _Menu__2() {
     if (document.getElementById("menu2").value == "98.css") {
-      document
-        .getElementById("theme-stylesheet")
-        .setAttribute("href", "css/98.css/98.min.css");
+      this._98__CSS();
+      localStorage.setItem("theme", "98");
     } else if (document.getElementById("menu2").value == "XP.css") {
-      document
-        .getElementById("theme-stylesheet")
-        .setAttribute("href", "css/XP.css/XP.min.css");
+      this._XP__CSS();
+      localStorage.setItem("theme", "XP");
+    } else if (document.getElementById("menu2").value == "7.css") {
+      this._7__CSS();
+      localStorage.setItem("theme", "7");
     }
   }
+
+  _check_themeSwitched = () => {
+    if (localStorage.getItem("theme") === null) {
+      localStorage.setItem("theme", "98");
+    } else if (localStorage.getItem("theme") === "98") {
+      this._98__CSS();
+    } else if (localStorage.getItem("theme") === "XP") {
+      this._XP__CSS();
+    } else if (localStorage.getItem("theme") === "7") {
+      this._7__CSS();
+    }
+  };
 
   _HLS__player = (i) => {
     this._modify__HTML__3();
@@ -391,14 +422,15 @@ class Main {
     }
   };
 }
+
 const main = new Main();
 
 window.onload = () => {
+  main._check_themeSwitched();
   main._innerText__byId__2(
     "title",
     ` ${document.getElementsByTagName("summary").item(0).textContent}`
   );
-
   main._modify__HTML();
   main._modify__HTML__2();
   main._modify__HTML__3();
