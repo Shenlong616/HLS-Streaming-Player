@@ -3,10 +3,13 @@
 ### Screenshot
 
 ![0](img/screenshot/0.png)
-_image_caption_
+_Windows 98_
 
 ![1](img/screenshot/1.png)
+_Windows XP_
+
 ![2](img/screenshot/2.png)
+_Windows 7_
 
 ### Lighthouse Report
 
