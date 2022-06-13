@@ -8,8 +8,8 @@
 
 ### Lighthouse Report
 
-- [Desktop](https://hls-streaming-player.pages.dev/Lighthouse/desktop)
-- [Mobile](https://hls-streaming-player.pages.dev/Lighthouse/mobile)
+- [Desktop](https://hls-streaming-player.pages.dev/Lighthouse/desktop){:target="\_blank"}
+- [Mobile](https://hls-streaming-player.pages.dev/Lighthouse/mobile){:target="\_blank"}
 
 ### Library ✨
 
@@ -23,5 +23,5 @@
 
 ### Demo
 
-- [Netlify](https://hls-streaming-player.netlify.app/)
-- [Cloudflare Pages](https://hls-streaming-player.pages.dev/)
+- [Netlify](https://hls-streaming-player.netlify.app/){:target="\_blank"}
+- [Cloudflare Pages](https://hls-streaming-player.pages.dev/){:target="\_blank"}
