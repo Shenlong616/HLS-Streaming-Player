@@ -3,6 +3,8 @@
 ### Screenshot
 
 ![0](img/screenshot/0.png)
+_image_caption_
+
 ![1](img/screenshot/1.png)
 ![2](img/screenshot/2.png)
 

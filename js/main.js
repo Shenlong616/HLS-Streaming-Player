@@ -275,19 +275,19 @@ class Main {
   _98__CSS = () => {
     document
       .getElementById("theme-stylesheet")
-      .setAttribute("href", "css/98.css/98.min.css");
+      .setAttribute("href", "css/98.css/98.min.css?v=0.1.18");
   };
 
   _XP__CSS = () => {
     document
       .getElementById("theme-stylesheet")
-      .setAttribute("href", "css/XP.css/XP.min.css");
+      .setAttribute("href", "css/XP.css/XP.min.css?v=0.3.0");
   };
 
   _7__CSS = () => {
     document
       .getElementById("theme-stylesheet")
-      .setAttribute("href", "css/7.css/7.min.css");
+      .setAttribute("href", "css/7.css/7.min.css?v=0.7.0");
   };
 
   _Menu__2() {
