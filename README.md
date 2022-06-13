@@ -4,7 +4,7 @@
 
 ![0](screenshot/0.png)
 ![1](screenshot/1.png)
-![2](screenshot/3.png)
+![2](screenshot/2.png)
 
 #### Library ✨
 
