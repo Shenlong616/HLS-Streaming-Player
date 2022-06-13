@@ -1,12 +1,12 @@
 # HLS Streaming Player
 
-#### Screenshot
+### Screenshot
 
 ![0](screenshot/0.png)
 ![1](screenshot/1.png)
 ![2](screenshot/2.png)
 
-#### Library ✨
+### Library ✨
 
 | libraryName                                                 | Version |
 | ----------------------------------------------------------- | ------- |
@@ -16,7 +16,7 @@
 | [HLS.js](https://github.com/video-dev/hls.js/)              | 1.1.5   |
 | [kanye.rest](https://github.com/ajzbc/kanye.rest)           |         |
 
-#### Demo
+### Demo
 
 - [Netlify](https://hls-streaming-player.netlify.app/)
 - [Cloudflare Pages](https://hls-streaming-player.pages.dev/)
