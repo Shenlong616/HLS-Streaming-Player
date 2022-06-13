@@ -8,8 +8,8 @@
 
 ### Lighthouse Report
 
-- [Desktop](Lighthouse/desktop.html)
-- [Mobile](Lighthouse/mobile.html)
+- [Desktop](https://hls-streaming-player.pages.dev/Lighthouse/desktop)
+- [Mobile](https://hls-streaming-player.pages.dev/Lighthouse/mobile)
 
 ### Library ✨
 
