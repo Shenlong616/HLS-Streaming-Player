@@ -5,43 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="HLS Streaming Player" />
-    <link rel="stylesheet" href="css/98.css/98.min.css?v=0.1.18" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link id="theme-stylesheet" rel="stylesheet" href="css/98.css/98.min.css" />
     <link rel="stylesheet" href="css/pokey.min.css?v=1.0.1" />
     <title>HLS Streaming Player.exe v2.0</title>
-    <style>
-      body {
-        /* margin: 0;
-        padding: 0;
-        overflow-y: scroll; */
-        background: #c0c0c0;
-        height: 100vh;
-        /* width: 100vw; */
-      }
-      main {
-        width: auto;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .mb-2 {
-        margin-bottom: 0.5rem !important;
-      }
-
-      .tree-view,
-      ul.tree-view ul > li:last-child:after {
-        background: #c0c0c0 !important;
-      }
-      ul.tree-view {
-        box-shadow: none !important;
-      }
-
-      /* https://getbootstrap.com/docs/5.2/layout/breakpoints/#media-queries */
-      @media (min-width: 1400px) {
-        main {
-          width: 87.65%;
-        }
-      }
-    </style>
   </head>
   <body>
     <main>
@@ -70,6 +37,11 @@
               <option value="0">Open this select menu</option>
               <option value="1">Picture-in-picture</option>
               <option value="2">Reset</option>
+            </select>
+            <select id="menu2" onchange="main._Menu__2()">
+              <option value="0">Select a theme</option>
+              <option value="98.css">Windows 98</option>
+              <option value="XP.css">Windows XP</option>
             </select>
           </div>
           <!-- 2 -->
@@ -191,6 +163,6 @@
     <script src="js/moment.min.js?v=2.29.3"></script>
     <script src="js/validator.min.js?v=13.7.0"></script>
     <script src="js/hls.min.js?v=1.1.5"></script>
-    <script src="js/main.min.js?v=2.0"></script>
+    <script src="js/main.js?v=2.0"></script>
   </body>
 </html>

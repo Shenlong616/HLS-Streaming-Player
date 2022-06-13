@@ -272,6 +272,18 @@ class Main {
     }
   };
 
+  _Menu__2() {
+    if (document.getElementById("menu2").value == "98.css") {
+      document
+        .getElementById("theme-stylesheet")
+        .setAttribute("href", "css/98.css/98.min.css");
+    } else if (document.getElementById("menu2").value == "XP.css") {
+      document
+        .getElementById("theme-stylesheet")
+        .setAttribute("href", "css/XP.css/XP.min.css");
+    }
+  }
+
   _HLS__player = (i) => {
     this._modify__HTML__3();
     var video = document.getElementById("video1");
