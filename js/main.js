@@ -244,9 +244,7 @@ class Main {
   _modify__HTML__3 = () => {
     this._innerText__byId(
       "notification",
-      `${moment().format("LLL")} - ${this._get__Random(
-        this.default.quote.KanyeWest
-      )}`
+      `${this._get__Random(this.default.quote.KanyeWest)}`
     );
 
     // https://stackoverflow.com/a/20920612
@@ -276,18 +274,21 @@ class Main {
     document
       .getElementById("theme-stylesheet")
       .setAttribute("href", "css/98.css/98.min.css?v=0.1.18");
+    this._innerText__byId("_current__Windows", "Windows 98");
   };
 
   _XP__CSS = () => {
     document
       .getElementById("theme-stylesheet")
       .setAttribute("href", "css/XP.css/XP.min.css?v=0.3.0");
+    this._innerText__byId("_current__Windows", "Windows XP");
   };
 
   _7__CSS = () => {
     document
       .getElementById("theme-stylesheet")
       .setAttribute("href", "css/7.css/7.min.css?v=0.7.0");
+    this._innerText__byId("_current__Windows", "Windows 7");
   };
 
   _Menu__2() {
@@ -429,7 +430,7 @@ window.onload = () => {
   main._check_themeSwitched();
   main._innerText__byId__2(
     "title",
-    ` ${document.getElementsByTagName("summary").item(0).textContent}`
+    ` ${document.getElementsByTagName("summary").item(0).textContent}.exe`
   );
   main._modify__HTML();
   main._modify__HTML__2();

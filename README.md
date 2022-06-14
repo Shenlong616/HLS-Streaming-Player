@@ -11,13 +11,6 @@ _Windows XP_
 ![2](img/screenshot/2.png)
 _Windows 7_
 
-### Lighthouse Report
-
-| deviceName                                                           | dateCapture  |
-| -------------------------------------------------------------------- | ------------ |
-| [Desktop](https://hls-streaming-player.pages.dev/Lighthouse/desktop) | Jun 13, 2022 |
-| [Mobile](https://hls-streaming-player.pages.dev/Lighthouse/mobile)   | Jun 13, 2022 |
-
 ### Library ✨
 
 | libraryName                                                 | versionNumber |
@@ -30,7 +23,7 @@ _Windows 7_
 | [HLS.js](https://github.com/video-dev/hls.js/)              | 1.1.5         |
 | [kanye.rest](https://github.com/ajzbc/kanye.rest)           |               |
 
-### Deployed On
+### Demo
 
 - [Netlify](https://hls-streaming-player.netlify.app/)
 - [Cloudflare Pages](https://hls-streaming-player.pages.dev/)
