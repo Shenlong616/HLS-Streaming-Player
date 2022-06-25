@@ -11,7 +11,7 @@ _Windows XP_
 ![2](img/screenshot/2.png)
 _Windows 7_
 
-### Library ✨
+### Library
 
 | libraryName                                                 | versionNumber | commitID |
 | ----------------------------------------------------------- | ------------- | -------- |
