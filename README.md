@@ -27,3 +27,4 @@ _Windows 7_
 
 - on [Netlify](https://hls-streaming-player.netlify.app/)
 - on [Cloudflare Pages](https://hls-streaming-player.pages.dev/)
+- on [Vercel](https://hls-streaming-player.vercel.app/)
