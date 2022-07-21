@@ -10,7 +10,7 @@ const initHLS = (
     hls.attachMedia(video);
     hls.on(Hls.Events.MEDIA_ATTACHED, function () {
       video.muted = true;
-      video.pause();
+      video.play();
     });
   }
   // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
@@ -19,7 +19,7 @@ const initHLS = (
   else if (video.canPlayType("application/vnd.apple.mpegurl")) {
     video.src = parameter;
     video.addEventListener("canplay", function () {
-      video.pause();
+      video.play();
     });
   }
 };
@@ -29,7 +29,7 @@ initHLS();
 const initLocalStorage = (parameter) => {
   let array = JSON.parse(localStorage.getItem("hls")) || [];
   array.push(parameter.trim());
-  // xu ly them nhung cai nham lol
+  // dung arraay de xu ly them nhung cai nham lol
   localStorage.setItem(
     "hls" || localStorage.setItem("hls", ""),
     JSON.stringify([...new Set(array)])
