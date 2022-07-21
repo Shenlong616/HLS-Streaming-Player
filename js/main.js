@@ -26,15 +26,40 @@ const initHLS = (
 
 initHLS();
 
-const initLocalStorage = (parameter) => {
+const initMain = (
+  parameter = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+) => {
   let array = JSON.parse(localStorage.getItem("hls")) || [];
-  array.push(parameter.trim());
-  // dung arraay de xu ly them nhung cai nham lol
+  array.push(parameter.trim()); // validatore parameter
+  const uniqueArray = [...new Set(array)];
+
+  //
   localStorage.setItem(
     "hls" || localStorage.setItem("hls", ""),
-    JSON.stringify([...new Set(array)])
+    JSON.stringify(uniqueArray)
   );
+
+  // https://stackoverflow.com/a/65413839
+  document.querySelector(".ul1").replaceChildren();
+
+  //
+  for (const item in uniqueArray) {
+    document.querySelector(".ul1").innerHTML += `
+    <li class="Box-row">
+    <input type="radio" id="${item}" name="name" value="${uniqueArray[item]}" style="cursor: pointer;"/>
+    <label for="${item}" style="cursor: pointer;">${uniqueArray[item]}</label>
+  </li>`;
+  }
+
+  //
+  for (const item of document.querySelectorAll(".ul1 li input")) {
+    item.addEventListener("click", () => {
+      initHLS(item.value);
+    });
+  }
 };
+
+initMain();
 
 document.querySelectorAll("div .Box-row").forEach((item) => {
   item.classList.add("Box-row--hover-gray");
@@ -45,5 +70,5 @@ document.querySelectorAll("div .Box-row").forEach((item) => {
 document
   .getElementsByClassName("branch-name")[0]
   .addEventListener("click", () => {
-    location.href = "https://github.com/Shenlong616/Text-Converter";
+    location.href = "https://github.com/Shenlong616/HLS-Streaming-Player";
   });

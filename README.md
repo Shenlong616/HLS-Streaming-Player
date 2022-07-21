@@ -1,8 +1,8 @@
-# Text Converter
+# HLS Streaming Player v2.0
 
 ### Screenshot
 
-![text-converter](img/123.png)
+![](img/0.png)
 
 ### Front-end framework
 
@@ -12,12 +12,11 @@
 
 ### Library
 
-| libraryName                                     | versionNumber |
-| ----------------------------------------------- | ------------- |
-| [Voca](https://github.com/panzerdp/voca)        | 1.4.0         |
-| [Quotable](https://github.com/quotable-io/data) | 0.3.2         |
+| libraryName                                   | versionNumber |
+| --------------------------------------------- | ------------- |
+| [HLS.js](https://github.com/video-dev/hls.js) | 1.1.5         |
 
 ### Deploy
 
-- on [Cloudflare](https://text-converter.pages.dev/)
-- on [GitHub](https://shenlong616.github.io/Text-Converter/)
+- on [Cloudflare](https://hls-streaming-player.pages.dev/)
+- on [GitHub](https://shenlong616.github.io/HLS-Streaming-Player/)
