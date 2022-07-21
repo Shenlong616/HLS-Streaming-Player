@@ -81,14 +81,6 @@ const initHLS = (
       // requestMediaKeySystemAccessFunc: requestMediaKeySystemAccess,
       cmcd: undefined,
     });
-
-    hls.loadSource(i);
-    hls.attachMedia(video);
-
-    hls.on(Hls.Events.MEDIA_ATTACHED, () => {
-      video.muted = true;
-      video.play();
-    });
     hls.loadSource(parameter);
     hls.attachMedia(video);
     hls.on(Hls.Events.MEDIA_ATTACHED, function () {
