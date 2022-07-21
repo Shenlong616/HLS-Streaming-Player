@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/primer.css?v=20.2.4" rel="stylesheet" />
-    <title>HLS Streaming Player v3.0</title>
+    <title>Text Converter v1.0</title>
   </head>
   <body data-color-mode="dark" data-dark-theme="dark_dimmed">
     <div class="col-md-7 mt-1 p-3 mx-auto">
@@ -20,8 +20,8 @@
           height="24"
         >
           <path
-            d="M15.5 12a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0z"
             fill="lime"
+            d="M15.5 12a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0z"
           ></path>
           <path
             fill="lime"
@@ -29,28 +29,33 @@
             d="M12 3.5c-3.432 0-6.125 1.534-8.054 3.24C2.02 8.445.814 10.352.33 11.202a1.6 1.6 0 000 1.598c.484.85 1.69 2.758 3.616 4.46C5.876 18.966 8.568 20.5 12 20.5c3.432 0 6.125-1.534 8.054-3.24 1.926-1.704 3.132-3.611 3.616-4.461a1.6 1.6 0 000-1.598c-.484-.85-1.69-2.757-3.616-4.46C18.124 5.034 15.432 3.5 12 3.5zM1.633 11.945c.441-.774 1.551-2.528 3.307-4.08C6.69 6.314 9.045 5 12 5c2.955 0 5.309 1.315 7.06 2.864 1.756 1.553 2.866 3.307 3.307 4.08a.111.111 0 01.017.056.111.111 0 01-.017.056c-.441.774-1.551 2.527-3.307 4.08C17.31 17.685 14.955 19 12 19c-2.955 0-5.309-1.315-7.06-2.864-1.756-1.553-2.866-3.306-3.307-4.08A.11.11 0 011.616 12a.11.11 0 01.017-.055z"
           ></path>
         </svg>
-        <!-- <h2 class="blankslate-heading">HLS Streaming Player v3.0</h2> -->
+        <!-- <h2 class="blankslate-heading">Text Converter v1.0</h2> -->
       </div>
 
-      <video controls id="video1" style="width: 99.99%"></video>
+      <video
+        id="video1"
+        controls
+        style="width: -webkit-fill-available"
+        class="text-center rounded-2"
+      ></video>
 
-      <div class="Box text-left mt-2 mb-2">
+      <div class="Box text-left mt-1 mb-2">
         <div class="Box-header Box-header--blue d-flex flex-items-center">
-          <form class="Box-title overflow-hidden flex-auto pr-2">
+          <form class="Box-title overflow-hidden flex-auto mr-2">
             <input
               id="input1"
-              class="form-control input-block"
-              type="text"
-              placeholder="Full-width input"
-              aria-label="Full-width input"
+              class="form-control input-contrast input-block"
+              type="url"
+              oninput="initHLS(this.value);initLocalStorage(this.value);"
+              placeholder="Input with contrast"
+              aria-label="Input with contrast"
             />
           </form>
           <a
             href="#"
             onclick="localStorage.clear();document.location.reload(true);"
             class="link-mktg arrow-target-mktg link-emphasis-mktg text-semibold f4-mktg"
-            >Reset
-            <svg
+            >Reset<svg
               xmlns="http://www.w3.org/2000/svg"
               class="octicon arrow-symbol-mktg"
               width="16"
@@ -72,7 +77,22 @@
           </a>
         </div>
 
-        <div id="modifyHtml"></div>
+        <div class="Box">
+          <ul>
+            <li class="Box-row">Box row one</li>
+            <li class="Box-row">Box row two</li>
+            <li class="Box-row">Box row three</li>
+            <li class="Box-row">Box row four</li>
+            <li class="Box-row">Box row three</li>
+            <li class="Box-row">Box row four</li>
+            <li class="Box-row">Box row three</li>
+            <li class="Box-row">Box row four</li>
+            <li class="Box-row">Box row three</li>
+            <li class="Box-row">Box row four</li>
+            <li class="Box-row">Box row three</li>
+            <li class="Box-row">Box row four</li>
+          </ul>
+        </div>
 
         <!-- <div class="Box-footer color-fg-subtle">footer</div> -->
       </div>
@@ -97,8 +117,12 @@
         Shenlong616
       </span>
     </div>
-    <script src="js/hls.min.js"></script>
-    <script src="js/validator.min.js"></script>
-    <script src="js/main.js?v=1.0"></script>
+
+    <script src="js/SmoothScroll.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/hls.js@1.1.5/dist/hls.min.js"
+    ></script>
+    <script defer src="js/main.js?v=1.0"></script>
   </body>
 </html>
