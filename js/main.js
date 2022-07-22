@@ -102,6 +102,13 @@ const initHLS = (parameter) => {
       video.muted = true;
       video.play();
     });
+
+    // https://github.com/video-dev/hls.js/blob/master/docs/API.md#runtime-events
+    // https://github.com/video-dev/hls.js/issues/4590
+    // https://github.com/TTitanUA/videojs-hlsjs-live-record
+    // hls.on(Hls.Events.FRAG_PARSED, (...rest) => {
+    //   console.log(rest);
+    // });
   }
   // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
   // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element through the `src` property.
