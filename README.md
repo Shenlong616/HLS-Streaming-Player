@@ -2,8 +2,8 @@
 
 ### Screenshot
 
-![](img/a.png)
-![](img/b.png)
+![](img/0.png)
+![](img/1.png)
 
 ### Front-end framework
 
