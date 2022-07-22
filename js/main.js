@@ -139,26 +139,32 @@ const initMain = (
     item.addEventListener("click", () => {
       initHLS(item.value);
       document.getElementById("input1").value = item.value;
-
       messageHighlight(1);
     });
   }
 };
 
-initMain();
+window.addEventListener("load", () => {
+  initMain();
 
-document.querySelectorAll(".blankslate-icon path").forEach((element) => {
-  element.setAttribute("fill", "lime");
-});
+  document
+    .querySelectorAll(".blankslate-icon path, .branch-name path")
+    .forEach((element) => {
+      element.setAttribute("fill", "lime");
+    });
 
-document.querySelectorAll("div .Box-row").forEach((element) => {
-  element.classList.add("Box-row--hover-gray");
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap
-  element.style.cssText = `overflow-wrap: break-word;`;
-});
+  document.querySelector(".branch-name").style.cssText = `color: peachpuff;
+                                                        cursor: pointer;`;
 
-document
-  .getElementsByClassName("branch-name")[0]
-  .addEventListener("click", () => {
-    location.href = "https://github.com/Shenlong616/HLS-Streaming-Player";
+  document.querySelectorAll("div .Box-row").forEach((element) => {
+    element.classList.add("Box-row--hover-gray");
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap
+    element.style.cssText = `overflow-wrap: break-word;`;
   });
+
+  document
+    .getElementsByClassName("branch-name")[0]
+    .addEventListener("click", () => {
+      location.href = "https://github.com/Shenlong616/HLS-Streaming-Player";
+    });
+});
