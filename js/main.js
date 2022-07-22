@@ -110,7 +110,7 @@ const initHLS = (parameter) => {
 const initMain = (
   parameter = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
 ) => {
-  let array = JSON.parse(localStorage.getItem("hls")) || [];
+  let array = JSON.parse(localStorage.getItem("HLS url")) || [];
   array.push(parameter.trim()); // validatore parameter
   const uniqueArray = [...new Set(array)].filter(
     (element) => element !== messageError
@@ -118,7 +118,7 @@ const initMain = (
 
   //
   localStorage.setItem(
-    "hls" || localStorage.setItem("hls", ""),
+    "HLS url" || localStorage.setItem("HLS url", ""),
     JSON.stringify(uniqueArray)
   );
 
@@ -147,14 +147,16 @@ const initMain = (
 window.addEventListener("load", () => {
   initMain();
 
-  document
-    .querySelectorAll(".blankslate-icon path, .branch-name path")
-    .forEach((element) => {
-      element.setAttribute("fill", "lime");
-    });
+  setTimeout(() => {
+    document
+      .querySelectorAll(".blankslate-icon path, .branch-name path")
+      .forEach((element) => {
+        element.setAttribute("fill", "lime");
+      });
 
-  document.querySelector(".branch-name").style.cssText = `color: peachpuff;
-                                                        cursor: pointer;`;
+    document.querySelector(".branch-name").style.cssText = `color: peachpuff;
+                                                            cursor: pointer;`;
+  }, 250);
 
   document.querySelectorAll("div .Box-row").forEach((element) => {
     element.classList.add("Box-row--hover-gray");
