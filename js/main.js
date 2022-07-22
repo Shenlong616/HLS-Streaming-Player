@@ -1,6 +1,4 @@
-const initHLS = (
-  parameter = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
-) => {
+const initHLS = (parameter) => {
   var video = document.getElementById("video1");
   if (Hls.isSupported()) {
     var hls = new Hls({
@@ -99,8 +97,6 @@ const initHLS = (
   }
 };
 
-initHLS();
-
 const initMain = (
   parameter = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
 ) => {
@@ -130,6 +126,7 @@ const initMain = (
   for (const item of document.querySelectorAll(".ul1 li input")) {
     item.addEventListener("click", () => {
       initHLS(item.value);
+      document.getElementById("input1").value = item.value;
     });
   }
 };
