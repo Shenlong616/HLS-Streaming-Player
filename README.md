@@ -12,9 +12,10 @@
 
 ### Library
 
-| libraryName                                   | versionNumber |
-| --------------------------------------------- | ------------- |
-| [HLS.js](https://github.com/video-dev/hls.js) | 1.1.5         |
+| libraryName                                                 | versionNumber |
+| ----------------------------------------------------------- | ------------- |
+| [HLS.js](https://github.com/video-dev/hls.js)               | 1.1.5         |
+| [validator.js](https://github.com/validatorjs/validator.js) | 13.7.0        |
 
 ### Deploy
 

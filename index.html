@@ -47,9 +47,30 @@
               id="input1"
               class="form-control input-contrast input-block"
               type="url"
-              onchange="initHLS(this.value);initMain(this.value);"
+              oninput="messageHighlight(1)"
+              onchange="
+              (
+                (
+                  validator.isURL(this.value)
+                  && !validator.isEmail(this.value)
+                  && !validator.isEmpty(this.value)
+                )
+                ||
+                (
+                  this.value = messageError
+                  ,messageHighlight(0)
+                )
+              )
+              &&
+              (
+                messageHighlight(1)
+                ,initHLS(this.value)
+                ,initMain(this.value)
+              )
+              "
               placeholder="HLS live streaming url"
               aria-label="HLS live streaming url"
+              required
             />
           </form>
           <a
@@ -81,8 +102,6 @@
         <div class="Box">
           <ul class="ul1"></ul>
         </div>
-
-        <!-- <div class="Box-footer color-fg-subtle">footer</div> -->
       </div>
 
       <span
@@ -106,6 +125,7 @@
       </span>
     </div>
 
+    <script defer src="js/validator.min.js?v=13.7.0"></script>
     <script defer src="js/hls.min.js?v=1.1.5"></script>
     <script defer src="js/main.js?v=2.0"></script>
   </body>

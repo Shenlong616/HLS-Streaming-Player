@@ -1,3 +1,27 @@
+const messageError = "your url is not valid";
+
+const iconHighlight = (parameter) => {
+  if (parameter === 0) {
+    document
+      .getElementsByClassName("blankslate-icon")[0]
+      .children[0].setAttribute("fill", "red");
+  } else if (parameter === 1) {
+    document
+      .getElementsByClassName("blankslate-icon")[0]
+      .children[0].setAttribute("fill", "lime");
+  }
+};
+
+const messageHighlight = (parameter) => {
+  if (parameter === 0) {
+    iconHighlight(0);
+    document.getElementById("input1").classList.add("color-fg-danger");
+  } else if (parameter === 1) {
+    iconHighlight(1);
+    document.getElementById("input1").classList.remove("color-fg-danger");
+  }
+};
+
 const initHLS = (parameter) => {
   var video = document.getElementById("video1");
   if (Hls.isSupported()) {
@@ -102,7 +126,9 @@ const initMain = (
 ) => {
   let array = JSON.parse(localStorage.getItem("hls")) || [];
   array.push(parameter.trim()); // validatore parameter
-  const uniqueArray = [...new Set(array)];
+  const uniqueArray = [...new Set(array)].filter(
+    (element) => element !== messageError
+  );
 
   //
   localStorage.setItem(
@@ -127,6 +153,8 @@ const initMain = (
     item.addEventListener("click", () => {
       initHLS(item.value);
       document.getElementById("input1").value = item.value;
+
+      messageHighlight(1);
     });
   }
 };
