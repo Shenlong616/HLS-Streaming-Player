@@ -1,23 +1,9 @@
 const messageError = "your url is not valid";
 
-const iconHighlight = (parameter) => {
-  if (parameter === 0) {
-    document
-      .getElementsByClassName("blankslate-icon")[0]
-      .children[0].setAttribute("fill", "red");
-  } else if (parameter === 1) {
-    document
-      .getElementsByClassName("blankslate-icon")[0]
-      .children[0].setAttribute("fill", "lime");
-  }
-};
-
 const messageHighlight = (parameter) => {
   if (parameter === 0) {
-    iconHighlight(0);
     document.getElementById("input1").classList.add("color-fg-danger");
   } else if (parameter === 1) {
-    iconHighlight(1);
     document.getElementById("input1").classList.remove("color-fg-danger");
   }
 };
@@ -161,10 +147,14 @@ const initMain = (
 
 initMain();
 
-document.querySelectorAll("div .Box-row").forEach((item) => {
-  item.classList.add("Box-row--hover-gray");
+document.querySelectorAll(".blankslate-icon path").forEach((element) => {
+  element.setAttribute("fill", "lime");
+});
+
+document.querySelectorAll("div .Box-row").forEach((element) => {
+  element.classList.add("Box-row--hover-gray");
   // https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap
-  item.style.cssText = `overflow-wrap: break-word;`;
+  element.style.cssText = `overflow-wrap: break-word;`;
 });
 
 document
