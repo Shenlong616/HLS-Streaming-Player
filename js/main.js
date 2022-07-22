@@ -136,7 +136,7 @@ const initMain = (
   //
   for (const item in uniqueArray) {
     document.querySelector(".ul1").innerHTML += `
-    <li class="Box-row">
+    <li class="Box-row Box-row--hover-gray" style="overflow-wrap: break-word;">
     <input type="radio" id="${item}" name="name" value="${uniqueArray[item]}" style="cursor: pointer;"/>
     <label for="${item}" style="cursor: pointer;">${uniqueArray[item]}</label>
   </li>`;
@@ -155,22 +155,21 @@ const initMain = (
 window.addEventListener("load", () => {
   initMain();
 
-  setTimeout(() => {
-    document
-      .querySelectorAll(".blankslate-icon path, .branch-name path")
-      .forEach((element) => {
-        element.setAttribute("fill", "lime");
-      });
+  document
+    .querySelectorAll(".blankslate-icon path, .branch-name path")
+    .forEach((element) => {
+      element.setAttribute("fill", "lime");
+    });
 
-    document.querySelector(".branch-name").style.cssText = `color: peachpuff;
-                                                            cursor: pointer;`;
-  }, 250);
+  document.querySelector(".branch-name").style.cssText = `color: peachpuff;
+                                                          cursor: pointer;`;
 
-  document.querySelectorAll("div .Box-row").forEach((element) => {
-    element.classList.add("Box-row--hover-gray");
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap
-    element.style.cssText = `overflow-wrap: break-word;`;
-  });
+  // L137
+  // document.querySelectorAll("div .Box-row").forEach((element) => {
+  //   element.classList.add("Box-row--hover-gray");
+  //   // https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap
+  //   element.style.cssText = `overflow-wrap: break-word;`;
+  // });
 
   document
     .getElementsByClassName("branch-name")[0]
