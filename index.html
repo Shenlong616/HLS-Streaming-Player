@@ -53,8 +53,8 @@
                 )
                 ||
                 (
-                  this.value = messageError
-                  ,messageHighlight(0)
+                  // this.value = messageError,
+                  messageHighlight(0)
                 )
               )
               &&
@@ -64,16 +64,16 @@
                 ,initMain(this.value)
               )
               "
-              placeholder="HLS live streaming url"
-              aria-label="HLS live streaming url"
+              placeholder="type `reset` to erase all data!"
+              aria-label="type `reset` to erase all data!"
               required
             />
           </form>
           <a
             href="#"
-            onclick="localStorage.clear();document.location.reload(true);"
+            onclick="alert(`im finishing :)`)"
             class="link-mktg arrow-target-mktg link-emphasis-mktg text-semibold f4-mktg"
-            >Reset<svg
+            >record video<svg
               xmlns="http://www.w3.org/2000/svg"
               class="octicon arrow-symbol-mktg"
               width="16"

@@ -1,4 +1,4 @@
-const messageError = "your url is not valid";
+// const messageError = "your url is not valid";
 
 const messageHighlight = (parameter) => {
   if (parameter === 0) {
@@ -7,6 +7,13 @@ const messageHighlight = (parameter) => {
     document.getElementById("input1").classList.remove("color-fg-danger");
   }
 };
+
+document.getElementById("input1").addEventListener("input", () => {
+  if (document.getElementById("input1").value === "reset") {
+    localStorage.clear();
+    document.location.reload(true);
+  }
+});
 
 const initHLS = (parameter) => {
   var video = document.getElementById("video1");
@@ -112,9 +119,10 @@ const initMain = (
 ) => {
   let array = JSON.parse(localStorage.getItem("HLS url")) || [];
   array.push(parameter.trim()); // validatore parameter
-  const uniqueArray = [...new Set(array)].filter(
-    (element) => element !== messageError
-  );
+  // const uniqueArray = [...new Set(array)].filter(
+  //   (element) => element !== messageError
+  // );
+  const uniqueArray = [...new Set(array)];
 
   //
   localStorage.setItem(
