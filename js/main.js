@@ -162,6 +162,7 @@ const initMain = (
 window.addEventListener("load", () => {
   initMain();
 
+  //-----------------------------------------------------------------
   document.head.insertAdjacentHTML(
     "beforeend",
     `<style>@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap")</style>`
@@ -180,7 +181,7 @@ window.addEventListener("load", () => {
   document.querySelector(".span1").style.cssText = `cursor: pointer;`;
 
   document.querySelector(".span1").addEventListener("click", () => {
-    location.href = "https://github.com/Shenlong616/HLS-Streaming-Player";
+    location.href = "https://github.com/Shenlong616/Text-Converter";
   });
 
   // https://primer.style/css/support/theming#set-a-theme
@@ -190,6 +191,14 @@ window.addEventListener("load", () => {
       .querySelectorAll(".blankslate-icon path, .span1 path")
       .forEach((element) => {
         element.setAttribute("fill", parameter);
+      });
+  };
+
+  const textColorTheme = (parameter) => {
+    document
+      .querySelectorAll("#characterCount, #wordCount")
+      .forEach((element) => {
+        element.style.cssText = `color: ${parameter}`;
       });
   };
 
@@ -204,9 +213,9 @@ window.addEventListener("load", () => {
     if (resetThemeAttribute(document.body)) {
       document.body.setAttribute("data-color-mode", "light");
       document.body.setAttribute("data-light-theme", "light");
-
       document.getElementById("themeToggleButton").textContent = "Dark mode";
-      iconColorTheme("black");
+      iconColorTheme("red");
+      // textColorTheme("red");
     }
   };
 
@@ -214,10 +223,10 @@ window.addEventListener("load", () => {
     if (resetThemeAttribute(document.body)) {
       document.body.setAttribute("data-color-mode", "dark");
       document.body.setAttribute("data-dark-theme", "dark");
-
       document.getElementById("themeToggleButton").textContent =
         "Dark Dimmed mode";
       iconColorTheme("lime");
+      // textColorTheme("lime");
     }
   };
 
@@ -225,10 +234,10 @@ window.addEventListener("load", () => {
     if (resetThemeAttribute(document.body)) {
       document.body.setAttribute("data-color-mode", "dark");
       document.body.setAttribute("data-dark-theme", "dark_dimmed");
-
       document.getElementById("themeToggleButton").textContent =
         "Dark High Contrast mode";
-      iconColorTheme("lime");
+      iconColorTheme("cyan");
+      // textColorTheme("cyan");
     }
   };
 
@@ -236,9 +245,9 @@ window.addEventListener("load", () => {
     if (resetThemeAttribute(document.body)) {
       document.body.setAttribute("data-color-mode", "dark");
       document.body.setAttribute("data-dark-theme", "dark_high_contrast");
-
       document.getElementById("themeToggleButton").textContent = "Light mode";
-      iconColorTheme("lime");
+      iconColorTheme("yellow");
+      // textColorTheme("yellow");
     }
   };
 
