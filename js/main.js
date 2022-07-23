@@ -10,7 +10,7 @@ const messageHighlight = (parameter) => {
 
 document.getElementById("input1").addEventListener("input", () => {
   if (document.getElementById("input1").value === "reset") {
-    localStorage.clear();
+    localStorage.removeItem("HLS url");
     document.location.reload(true);
   }
 });
