@@ -181,7 +181,7 @@ window.addEventListener("load", () => {
   // });
 
   document.querySelector(".branch-name svg").addEventListener("click", () => {
-    location.href = "https://github.com/Shenlong616/Text-Converter";
+    location.href = "https://github.com/Shenlong616/HLS-Streaming-Player";
   });
 
   // https://primer.style/css/support/theming#set-a-theme
