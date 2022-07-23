@@ -169,25 +169,113 @@ window.addEventListener("load", () => {
 
   document.body.style.fontFamily = "Noto Sans, sans-serif";
 
-  document
-    .querySelectorAll(".blankslate-icon path, .branch-name path")
-    .forEach((element) => {
-      element.setAttribute("fill", "lime");
-    });
+  document.querySelector(".branch-name").style.cssText = `cursor: pointer;
+                                                          user-select: none;`;
 
-  document.querySelector(".branch-name").style.cssText = `color: peachpuff;
-                                                          cursor: pointer;`;
-
-  // L137
+  // L146
   // document.querySelectorAll("div .Box-row").forEach((element) => {
   //   element.classList.add("Box-row--hover-gray");
+
   //   // https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap
   //   element.style.cssText = `overflow-wrap: break-word;`;
   // });
 
-  document
-    .getElementsByClassName("branch-name")[0]
-    .addEventListener("click", () => {
-      location.href = "https://github.com/Shenlong616/HLS-Streaming-Player";
-    });
+  document.querySelector(".branch-name svg").addEventListener("click", () => {
+    location.href = "https://github.com/Shenlong616/Text-Converter";
+  });
+
+  // https://primer.style/css/support/theming#set-a-theme
+
+  const iconColorTheme = (parameter) => {
+    document
+      .querySelectorAll(".blankslate-icon path, .branch-name path")
+      .forEach((element) => {
+        element.setAttribute("fill", parameter);
+      });
+  };
+
+  const resetThemeAttribute = (parameter) => {
+    parameter.removeAttribute("data-color-mode");
+    parameter.removeAttribute("data-light-theme");
+    parameter.removeAttribute("data-dark-theme");
+    return true;
+  };
+
+  const lightTheme = () => {
+    if (resetThemeAttribute(document.body)) {
+      document.body.setAttribute("data-color-mode", "light");
+      document.body.setAttribute("data-light-theme", "light");
+
+      document.getElementById("themeToggleButton").textContent = "Dark";
+      iconColorTheme("black");
+    }
+  };
+
+  const darkTheme = () => {
+    if (resetThemeAttribute(document.body)) {
+      document.body.setAttribute("data-color-mode", "dark");
+      document.body.setAttribute("data-dark-theme", "dark");
+
+      document.getElementById("themeToggleButton").textContent = "Dark Dimmed";
+      iconColorTheme("lime");
+    }
+  };
+
+  const darkDimmedTheme = () => {
+    if (resetThemeAttribute(document.body)) {
+      document.body.setAttribute("data-color-mode", "dark");
+      document.body.setAttribute("data-dark-theme", "dark_dimmed");
+
+      document.getElementById("themeToggleButton").textContent =
+        "Dark High Contrast";
+      iconColorTheme("lime");
+    }
+  };
+
+  const darkHighContrastTheme = () => {
+    if (resetThemeAttribute(document.body)) {
+      document.body.setAttribute("data-color-mode", "dark");
+      document.body.setAttribute("data-dark-theme", "dark_high_contrast");
+
+      document.getElementById("themeToggleButton").textContent = "Light";
+      iconColorTheme("lime");
+    }
+  };
+
+  const initTheme = () => {
+    if (localStorage.getItem("theme") === null) {
+      localStorage.setItem("theme", "light");
+      lightTheme();
+    } else if (localStorage.getItem("theme") === "light") {
+      lightTheme();
+    } else if (localStorage.getItem("theme") === "dark") {
+      darkTheme();
+    } else if (localStorage.getItem("theme") === "dark_dimmed") {
+      darkDimmedTheme();
+    } else if (localStorage.getItem("theme") === "dark_high_contrast") {
+      darkHighContrastTheme();
+    }
+  };
+
+  initTheme();
+
+  const themeToggle = () => {
+    if (localStorage.getItem("theme") === "light") {
+      localStorage.setItem("theme", "dark");
+      darkTheme();
+    } else if (localStorage.getItem("theme") === "dark") {
+      localStorage.setItem("theme", "dark_dimmed");
+      darkDimmedTheme();
+    } else if (localStorage.getItem("theme") === "dark_dimmed") {
+      localStorage.setItem("theme", "dark_high_contrast");
+      darkHighContrastTheme();
+    } else if (localStorage.getItem("theme") === "dark_high_contrast") {
+      localStorage.setItem("theme", "light");
+      lightTheme();
+    }
+  };
+
+  document.getElementById("themeToggleButton").addEventListener("click", () => {
+    themeToggle();
+  });
 });
