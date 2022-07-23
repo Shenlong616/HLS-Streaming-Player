@@ -169,10 +169,7 @@ window.addEventListener("load", () => {
 
   document.body.style.fontFamily = "Noto Sans, sans-serif";
 
-  document.querySelector(".branch-name").style.cssText = `cursor: pointer;
-                                                          user-select: none;`;
-
-  // L146
+  // L144
   // document.querySelectorAll("div .Box-row").forEach((element) => {
   //   element.classList.add("Box-row--hover-gray");
 
@@ -180,7 +177,9 @@ window.addEventListener("load", () => {
   //   element.style.cssText = `overflow-wrap: break-word;`;
   // });
 
-  document.querySelector(".branch-name svg").addEventListener("click", () => {
+  document.querySelector(".span1").style.cssText = `cursor: pointer;`;
+
+  document.querySelector(".span1").addEventListener("click", () => {
     location.href = "https://github.com/Shenlong616/HLS-Streaming-Player";
   });
 
@@ -188,7 +187,7 @@ window.addEventListener("load", () => {
 
   const iconColorTheme = (parameter) => {
     document
-      .querySelectorAll(".blankslate-icon path, .branch-name path")
+      .querySelectorAll(".blankslate-icon path, .span1 path")
       .forEach((element) => {
         element.setAttribute("fill", parameter);
       });
@@ -206,7 +205,7 @@ window.addEventListener("load", () => {
       document.body.setAttribute("data-color-mode", "light");
       document.body.setAttribute("data-light-theme", "light");
 
-      document.getElementById("themeToggleButton").textContent = "Dark";
+      document.getElementById("themeToggleButton").textContent = "Dark mode";
       iconColorTheme("black");
     }
   };
@@ -216,7 +215,8 @@ window.addEventListener("load", () => {
       document.body.setAttribute("data-color-mode", "dark");
       document.body.setAttribute("data-dark-theme", "dark");
 
-      document.getElementById("themeToggleButton").textContent = "Dark Dimmed";
+      document.getElementById("themeToggleButton").textContent =
+        "Dark Dimmed mode";
       iconColorTheme("lime");
     }
   };
@@ -227,7 +227,7 @@ window.addEventListener("load", () => {
       document.body.setAttribute("data-dark-theme", "dark_dimmed");
 
       document.getElementById("themeToggleButton").textContent =
-        "Dark High Contrast";
+        "Dark High Contrast mode";
       iconColorTheme("lime");
     }
   };
@@ -237,7 +237,7 @@ window.addEventListener("load", () => {
       document.body.setAttribute("data-color-mode", "dark");
       document.body.setAttribute("data-dark-theme", "dark_high_contrast");
 
-      document.getElementById("themeToggleButton").textContent = "Light";
+      document.getElementById("themeToggleButton").textContent = "Light mode";
       iconColorTheme("lime");
     }
   };
