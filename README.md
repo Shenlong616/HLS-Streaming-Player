@@ -2,8 +2,7 @@
 
 ### Screenshot
 
-![](img/0.png)
-![](img/1.png)
+![HLS Streaming Player](img/123.png)
 
 ### Front-end framework
 
