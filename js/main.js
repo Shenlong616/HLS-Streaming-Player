@@ -252,7 +252,7 @@ window.addEventListener("load", () => {
   };
 
   const initTheme = () => {
-    if (localStorage.getItem("theme") === null) {
+    if (!("theme" in localStorage)) {
       localStorage.setItem("theme", "light");
       lightTheme();
     } else if (localStorage.getItem("theme") === "light") {
